@@ -538,13 +538,13 @@
                                 "interface": [
                                     {
                                         "name": "__IMTLENGTH__",
-                                        "label": "Total number of bundles",
-                                        "type": "uinteger"
+                                        "type": "uinteger",
+                                        "label": "Total number of bundles"
                                     },
                                     {
                                         "name": "__IMTINDEX__",
-                                        "label": "Bundle order position",
-                                        "type": "uinteger"
+                                        "type": "uinteger",
+                                        "label": "Bundle order position"
                                     },
                                     {
                                         "name": "__ROW_NUMBER__",
@@ -1341,14 +1341,14 @@
                                         "__IMTCONN__": 5325828
                                     },
                                     "mapper": {
-                                        "chatId": "{{40.message.chat.id}}",
                                         "text": "Error getting content from link: {{1.error.type}}, {{1.error.message}}, {{1.error.detail}}",
-                                        "messageThreadId": "",
+                                        "chatId": "{{40.message.chat.id}}",
                                         "parseMode": "",
-                                        "disableNotification": true,
+                                        "replyMarkup": "",
+                                        "messageThreadId": "",
                                         "replyToMessageId": "",
-                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                        "replyMarkup": ""
+                                        "disableNotification": true,
+                                        "replyMarkupAssembleType": "reply_markup_enter"
                                     },
                                     "metadata": {
                                         "designer": {
@@ -1356,15 +1356,6 @@
                                             "y": 1165
                                         },
                                         "restore": {
-                                            "parameters": {
-                                                "__IMTCONN__": {
-                                                    "label": "Notes Telegram Bot connection",
-                                                    "data": {
-                                                        "scoped": "true",
-                                                        "connection": "telegram"
-                                                    }
-                                                }
-                                            },
                                             "expect": {
                                                 "parseMode": {
                                                     "label": "Empty"
@@ -1374,6 +1365,15 @@
                                                 },
                                                 "replyMarkupAssembleType": {
                                                     "label": "Enter the Reply Markup"
+                                                }
+                                            },
+                                            "parameters": {
+                                                "__IMTCONN__": {
+                                                    "data": {
+                                                        "scoped": "true",
+                                                        "connection": "telegram"
+                                                    },
+                                                    "label": "Notes Telegram Bot connection"
                                                 }
                                             }
                                         },
@@ -1463,12 +1463,12 @@
                                                 "paragraph": {
                                                     "text": [
                                                         {
+                                                            "text": {
+                                                                "content": "- {{40.message.text}}"
+                                                            },
                                                             "type": "text",
                                                             "annotations": {
                                                                 "color": "default"
-                                                            },
-                                                            "text": {
-                                                                "content": "- {{40.message.text}}"
                                                             }
                                                         }
                                                     ]
@@ -1482,15 +1482,6 @@
                                             "y": 1570
                                         },
                                         "restore": {
-                                            "parameters": {
-                                                "__IMTCONN__": {
-                                                    "label": "My Notion Internal connection",
-                                                    "data": {
-                                                        "scoped": "true",
-                                                        "connection": "notion3"
-                                                    }
-                                                }
-                                            },
                                             "expect": {
                                                 "page": {
                                                     "mode": "edit"
@@ -1518,21 +1509,21 @@
                                                                                         "bold": {
                                                                                             "mode": "chose"
                                                                                         },
-                                                                                        "italic": {
-                                                                                            "mode": "chose"
-                                                                                        },
-                                                                                        "strikethrough": {
-                                                                                            "mode": "chose"
-                                                                                        },
-                                                                                        "underline": {
-                                                                                            "mode": "chose"
-                                                                                        },
                                                                                         "code": {
                                                                                             "mode": "chose"
                                                                                         },
                                                                                         "color": {
                                                                                             "mode": "chose",
                                                                                             "label": "default"
+                                                                                        },
+                                                                                        "italic": {
+                                                                                            "mode": "chose"
+                                                                                        },
+                                                                                        "underline": {
+                                                                                            "mode": "chose"
+                                                                                        },
+                                                                                        "strikethrough": {
+                                                                                            "mode": "chose"
                                                                                         }
                                                                                     }
                                                                                 }
@@ -1543,6 +1534,15 @@
                                                             }
                                                         }
                                                     ]
+                                                }
+                                            },
+                                            "parameters": {
+                                                "__IMTCONN__": {
+                                                    "data": {
+                                                        "scoped": "true",
+                                                        "connection": "notion3"
+                                                    },
+                                                    "label": "My Notion Internal connection"
                                                 }
                                             }
                                         },
@@ -1556,17 +1556,14 @@
                                         ],
                                         "expect": [
                                             {
+                                                "mode": "edit",
                                                 "name": "page",
                                                 "type": "select",
                                                 "label": "Page ID",
-                                                "mode": "edit",
                                                 "required": true
                                             },
                                             {
                                                 "name": "objects",
-                                                "type": "array",
-                                                "label": "Content Objects",
-                                                "required": true,
                                                 "spec": [
                                                     {
                                                         "name": "type",
@@ -1638,7 +1635,10 @@
                                                         },
                                                         "required": true
                                                     }
-                                                ]
+                                                ],
+                                                "type": "array",
+                                                "label": "Content Objects",
+                                                "required": true
                                             }
                                         ]
                                     }
@@ -1651,13 +1651,13 @@
                                         "__IMTCONN__": 5325828
                                     },
                                     "mapper": {
-                                        "chatId": "{{40.message.chat.id}}",
                                         "text": "Link successfully added",
-                                        "messageThreadId": "",
+                                        "chatId": "{{40.message.chat.id}}",
                                         "parseMode": "",
+                                        "replyMarkup": "",
+                                        "messageThreadId": "",
                                         "replyToMessageId": "",
-                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                        "replyMarkup": ""
+                                        "replyMarkupAssembleType": "reply_markup_enter"
                                     },
                                     "metadata": {
                                         "designer": {
@@ -1665,15 +1665,6 @@
                                             "y": 1695
                                         },
                                         "restore": {
-                                            "parameters": {
-                                                "__IMTCONN__": {
-                                                    "label": "Notes Telegram Bot connection",
-                                                    "data": {
-                                                        "scoped": "true",
-                                                        "connection": "telegram"
-                                                    }
-                                                }
-                                            },
                                             "expect": {
                                                 "parseMode": {
                                                     "label": "Empty"
@@ -1683,6 +1674,15 @@
                                                 },
                                                 "replyMarkupAssembleType": {
                                                     "label": "Enter the Reply Markup"
+                                                }
+                                            },
+                                            "parameters": {
+                                                "__IMTCONN__": {
+                                                    "data": {
+                                                        "scoped": "true",
+                                                        "connection": "telegram"
+                                                    },
+                                                    "label": "Notes Telegram Bot connection"
                                                 }
                                             }
                                         },
@@ -2010,13 +2010,13 @@
                                                         "__IMTCONN__": 5325828
                                                     },
                                                     "mapper": {
-                                                        "chatId": "{{40.message.chat.id}}",
                                                         "text": "Error summarizing web with Groq AI: \n{{17.error.type}}, {{17.error.message}}, {{17.error.detail}}",
-                                                        "messageThreadId": "",
+                                                        "chatId": "{{40.message.chat.id}}",
                                                         "parseMode": "",
+                                                        "replyMarkup": "",
+                                                        "messageThreadId": "",
                                                         "replyToMessageId": "",
-                                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                                        "replyMarkup": ""
+                                                        "replyMarkupAssembleType": "reply_markup_enter"
                                                     },
                                                     "metadata": {
                                                         "designer": {
@@ -2024,15 +2024,6 @@
                                                             "y": 600
                                                         },
                                                         "restore": {
-                                                            "parameters": {
-                                                                "__IMTCONN__": {
-                                                                    "label": "Notes Telegram Bot connection",
-                                                                    "data": {
-                                                                        "scoped": "true",
-                                                                        "connection": "telegram"
-                                                                    }
-                                                                }
-                                                            },
                                                             "expect": {
                                                                 "parseMode": {
                                                                     "label": "Empty"
@@ -2042,6 +2033,15 @@
                                                                 },
                                                                 "replyMarkupAssembleType": {
                                                                     "label": "Enter the Reply Markup"
+                                                                }
+                                                            },
+                                                            "parameters": {
+                                                                "__IMTCONN__": {
+                                                                    "data": {
+                                                                        "scoped": "true",
+                                                                        "connection": "telegram"
+                                                                    },
+                                                                    "label": "Notes Telegram Bot connection"
                                                                 }
                                                             }
                                                         },
@@ -2346,14 +2346,14 @@
                                                                         "__IMTCONN__": 5325828
                                                                     },
                                                                     "mapper": {
-                                                                        "chatId": "{{40.message.chat.id}}",
                                                                         "text": "Error adding content to Notion: {{63.error.type}} {{63.error.message}} {{63.error.detail}}\n\n{{17.result}}",
-                                                                        "messageThreadId": "",
+                                                                        "chatId": "{{40.message.chat.id}}",
                                                                         "parseMode": "",
-                                                                        "disableNotification": true,
+                                                                        "replyMarkup": "",
+                                                                        "messageThreadId": "",
                                                                         "replyToMessageId": "",
-                                                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                                                        "replyMarkup": ""
+                                                                        "disableNotification": true,
+                                                                        "replyMarkupAssembleType": "reply_markup_enter"
                                                                     },
                                                                     "metadata": {
                                                                         "designer": {
@@ -2361,15 +2361,6 @@
                                                                             "y": 300
                                                                         },
                                                                         "restore": {
-                                                                            "parameters": {
-                                                                                "__IMTCONN__": {
-                                                                                    "label": "Notes Telegram Bot connection",
-                                                                                    "data": {
-                                                                                        "scoped": "true",
-                                                                                        "connection": "telegram"
-                                                                                    }
-                                                                                }
-                                                                            },
                                                                             "expect": {
                                                                                 "parseMode": {
                                                                                     "label": "Empty"
@@ -2379,6 +2370,15 @@
                                                                                 },
                                                                                 "replyMarkupAssembleType": {
                                                                                     "label": "Enter the Reply Markup"
+                                                                                }
+                                                                            },
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": {
+                                                                                    "data": {
+                                                                                        "scoped": "true",
+                                                                                        "connection": "telegram"
+                                                                                    },
+                                                                                    "label": "Notes Telegram Bot connection"
                                                                                 }
                                                                             }
                                                                         },
@@ -2666,14 +2666,14 @@
                                                 ]
                                             },
                                             "mapper": {
-                                                "chatId": "{{40.message.chat.id}}",
                                                 "text": "No static content was found in  {{40.message.text}}",
-                                                "messageThreadId": "",
+                                                "chatId": "{{40.message.chat.id}}",
                                                 "parseMode": "",
-                                                "disableNotification": true,
+                                                "replyMarkup": "",
+                                                "messageThreadId": "",
                                                 "replyToMessageId": "",
-                                                "replyMarkupAssembleType": "reply_markup_enter",
-                                                "replyMarkup": ""
+                                                "disableNotification": true,
+                                                "replyMarkupAssembleType": "reply_markup_enter"
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -2681,15 +2681,6 @@
                                                     "y": 1050
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "Notes Telegram Bot connection",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "telegram"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
                                                         "parseMode": {
                                                             "label": "Empty"
@@ -2699,6 +2690,15 @@
                                                         },
                                                         "replyMarkupAssembleType": {
                                                             "label": "Enter the Reply Markup"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "telegram"
+                                                            },
+                                                            "label": "Notes Telegram Bot connection"
                                                         }
                                                     }
                                                 },
@@ -2990,14 +2990,14 @@
                                                                         "__IMTCONN__": 5325828
                                                                     },
                                                                     "mapper": {
-                                                                        "chatId": "{{40.message.chat.id}}",
                                                                         "text": "Error adding content to Notion: \n{{61.error.type}}{{61.error.message}}{{61.error.detail}}",
-                                                                        "messageThreadId": "",
+                                                                        "chatId": "{{40.message.chat.id}}",
                                                                         "parseMode": "",
-                                                                        "disableNotification": true,
+                                                                        "replyMarkup": "",
+                                                                        "messageThreadId": "",
                                                                         "replyToMessageId": "",
-                                                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                                                        "replyMarkup": ""
+                                                                        "disableNotification": true,
+                                                                        "replyMarkupAssembleType": "reply_markup_enter"
                                                                     },
                                                                     "metadata": {
                                                                         "designer": {
@@ -3005,15 +3005,6 @@
                                                                             "y": 1200
                                                                         },
                                                                         "restore": {
-                                                                            "parameters": {
-                                                                                "__IMTCONN__": {
-                                                                                    "label": "Notes Telegram Bot connection",
-                                                                                    "data": {
-                                                                                        "scoped": "true",
-                                                                                        "connection": "telegram"
-                                                                                    }
-                                                                                }
-                                                                            },
                                                                             "expect": {
                                                                                 "parseMode": {
                                                                                     "label": "Empty"
@@ -3023,6 +3014,15 @@
                                                                                 },
                                                                                 "replyMarkupAssembleType": {
                                                                                     "label": "Enter the Reply Markup"
+                                                                                }
+                                                                            },
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": {
+                                                                                    "data": {
+                                                                                        "scoped": "true",
+                                                                                        "connection": "telegram"
+                                                                                    },
+                                                                                    "label": "Notes Telegram Bot connection"
                                                                                 }
                                                                             }
                                                                         },
@@ -3122,13 +3122,13 @@
                                                 "__IMTCONN__": 5325828
                                             },
                                             "mapper": {
-                                                "chatId": "{{40.message.chat.id}}",
                                                 "text": "Link successfully added",
-                                                "messageThreadId": "",
+                                                "chatId": "{{40.message.chat.id}}",
                                                 "parseMode": "",
+                                                "replyMarkup": "",
+                                                "messageThreadId": "",
                                                 "replyToMessageId": "",
-                                                "replyMarkupAssembleType": "reply_markup_enter",
-                                                "replyMarkup": ""
+                                                "replyMarkupAssembleType": "reply_markup_enter"
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -3136,15 +3136,6 @@
                                                     "y": 900
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "Notes Telegram Bot connection",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "telegram"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
                                                         "parseMode": {
                                                             "label": "Empty"
@@ -3154,6 +3145,15 @@
                                                         },
                                                         "replyMarkupAssembleType": {
                                                             "label": "Enter the Reply Markup"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "telegram"
+                                                            },
+                                                            "label": "Notes Telegram Bot connection"
                                                         }
                                                     }
                                                 },
@@ -3257,7 +3257,7 @@
                                 "variables": [
                                     {
                                         "name": "page",
-                                        "value": "{{replace(40.message.text; \"/\"; )}}"
+                                        "value": "{{substring(40.message.text; 1)}}"
                                     }
                                 ],
                                 "scope": "roundtrip"
@@ -3873,13 +3873,13 @@
                                         "__IMTCONN__": 5325828
                                     },
                                     "mapper": {
-                                        "chatId": "{{40.message.chat.id}}",
                                         "text": "Error setting the page where to add: {{69.error.type}}{{69.error.message}}{{69.error.detail}}",
-                                        "messageThreadId": "",
+                                        "chatId": "{{40.message.chat.id}}",
                                         "parseMode": "",
+                                        "replyMarkup": "",
+                                        "messageThreadId": "",
                                         "replyToMessageId": "",
-                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                        "replyMarkup": ""
+                                        "replyMarkupAssembleType": "reply_markup_enter"
                                     },
                                     "metadata": {
                                         "designer": {
@@ -3887,15 +3887,6 @@
                                             "y": 2247
                                         },
                                         "restore": {
-                                            "parameters": {
-                                                "__IMTCONN__": {
-                                                    "label": "Notes Telegram Bot connection",
-                                                    "data": {
-                                                        "scoped": "true",
-                                                        "connection": "telegram"
-                                                    }
-                                                }
-                                            },
                                             "expect": {
                                                 "parseMode": {
                                                     "label": "Empty"
@@ -3905,6 +3896,15 @@
                                                 },
                                                 "replyMarkupAssembleType": {
                                                     "label": "Enter the Reply Markup"
+                                                }
+                                            },
+                                            "parameters": {
+                                                "__IMTCONN__": {
+                                                    "data": {
+                                                        "scoped": "true",
+                                                        "connection": "telegram"
+                                                    },
+                                                    "label": "Notes Telegram Bot connection"
                                                 }
                                             }
                                         },
@@ -3990,25 +3990,25 @@
                             },
                             "mapper": {
                                 "from": "drive",
-                                "valueRenderOption": "FORMATTED_VALUE",
-                                "dateTimeRenderOption": "FORMATTED_STRING",
                                 "limit": "1",
-                                "spreadsheetId": "1-xHepr-Isair-zLIfVDEnBc0sx2bD0XE3zJ-299VlZ8",
-                                "sheetId": "Map name-id",
-                                "includesHeaders": true,
-                                "tableFirstRow": "A1:CZ1",
                                 "filter": [
                                     [
                                         {
                                             "a": "A",
-                                            "o": "text:equal",
-                                            "b": "{{replace(40.message.text; \"/\"; )}}"
+                                            "b": "{{replace(40.message.text; \"/\"; )}}",
+                                            "o": "text:equal"
                                         }
                                     ]
                                 ],
                                 "orderBy": "__ROW_NUMBER__",
+                                "sheetId": "Map name-id",
+                                "fieldType": "string",
                                 "sortOrder": "desc",
-                                "fieldType": "string"
+                                "spreadsheetId": "1-xHepr-Isair-zLIfVDEnBc0sx2bD0XE3zJ-299VlZ8",
+                                "tableFirstRow": "A1:CZ1",
+                                "includesHeaders": true,
+                                "valueRenderOption": "FORMATTED_VALUE",
+                                "dateTimeRenderOption": "FORMATTED_STRING"
                             },
                             "metadata": {
                                 "designer": {
@@ -4016,18 +4016,36 @@
                                     "y": 1773
                                 },
                                 "restore": {
-                                    "parameters": {
-                                        "__IMTCONN__": {
-                                            "label": "My Google connection (mariolams95@gmail.com)",
-                                            "data": {
-                                                "scoped": "true",
-                                                "connection": "google"
-                                            }
-                                        }
-                                    },
                                     "expect": {
                                         "from": {
                                             "label": "Select from My Drive"
+                                        },
+                                        "orderBy": {
+                                            "mode": "chose",
+                                            "label": "Row number"
+                                        },
+                                        "sheetId": {
+                                            "mode": "chose",
+                                            "label": "Map name-id"
+                                        },
+                                        "fieldType": {
+                                            "mode": "chose",
+                                            "label": "String"
+                                        },
+                                        "sortOrder": {
+                                            "mode": "chose",
+                                            "label": "Descending"
+                                        },
+                                        "spreadsheetId": {
+                                            "mode": "chose",
+                                            "label": "TelegramNotes2NotionPage"
+                                        },
+                                        "tableFirstRow": {
+                                            "label": "A-CZ"
+                                        },
+                                        "includesHeaders": {
+                                            "mode": "chose",
+                                            "label": "Yes"
                                         },
                                         "valueRenderOption": {
                                             "mode": "chose",
@@ -4036,33 +4054,15 @@
                                         "dateTimeRenderOption": {
                                             "mode": "chose",
                                             "label": "Formatted string"
-                                        },
-                                        "spreadsheetId": {
-                                            "mode": "chose",
-                                            "label": "TelegramNotes2NotionPage"
-                                        },
-                                        "sheetId": {
-                                            "mode": "chose",
-                                            "label": "Map name-id"
-                                        },
-                                        "includesHeaders": {
-                                            "mode": "chose",
-                                            "label": "Yes"
-                                        },
-                                        "tableFirstRow": {
-                                            "label": "A-CZ"
-                                        },
-                                        "orderBy": {
-                                            "mode": "chose",
-                                            "label": "Row number"
-                                        },
-                                        "sortOrder": {
-                                            "mode": "chose",
-                                            "label": "Descending"
-                                        },
-                                        "fieldType": {
-                                            "mode": "chose",
-                                            "label": "String"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google"
+                                            },
+                                            "label": "My Google connection (mariolams95@gmail.com)"
                                         }
                                     }
                                 },
@@ -4199,548 +4199,548 @@
                                 "interface": [
                                     {
                                         "name": "__IMTLENGTH__",
-                                        "label": "Total number of bundles",
-                                        "type": "uinteger"
+                                        "type": "uinteger",
+                                        "label": "Total number of bundles"
                                     },
                                     {
                                         "name": "__IMTINDEX__",
-                                        "label": "Bundle order position",
-                                        "type": "uinteger"
+                                        "type": "uinteger",
+                                        "label": "Bundle order position"
                                     },
                                     {
                                         "name": "__ROW_NUMBER__",
-                                        "label": "Row number",
-                                        "type": "number"
+                                        "type": "number",
+                                        "label": "Row number"
                                     },
                                     {
                                         "name": "__SPREADSHEET_ID__",
-                                        "label": "Spreadsheet ID",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "Spreadsheet ID"
                                     },
                                     {
                                         "name": "__SHEET__",
-                                        "label": "Sheet",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "Sheet"
                                     },
                                     {
                                         "name": "0",
-                                        "label": "Name (A)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "Name (A)"
                                     },
                                     {
                                         "name": "1",
-                                        "label": "Id (B)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "Id (B)"
                                     },
                                     {
                                         "name": "2",
-                                        "label": "(C)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(C)"
                                     },
                                     {
                                         "name": "3",
-                                        "label": "(D)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(D)"
                                     },
                                     {
                                         "name": "4",
-                                        "label": "(E)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(E)"
                                     },
                                     {
                                         "name": "5",
-                                        "label": "(F)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(F)"
                                     },
                                     {
                                         "name": "6",
-                                        "label": "(G)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(G)"
                                     },
                                     {
                                         "name": "7",
-                                        "label": "(H)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(H)"
                                     },
                                     {
                                         "name": "8",
-                                        "label": "(I)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(I)"
                                     },
                                     {
                                         "name": "9",
-                                        "label": "(J)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(J)"
                                     },
                                     {
                                         "name": "10",
-                                        "label": "(K)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(K)"
                                     },
                                     {
                                         "name": "11",
-                                        "label": "(L)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(L)"
                                     },
                                     {
                                         "name": "12",
-                                        "label": "(M)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(M)"
                                     },
                                     {
                                         "name": "13",
-                                        "label": "(N)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(N)"
                                     },
                                     {
                                         "name": "14",
-                                        "label": "(O)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(O)"
                                     },
                                     {
                                         "name": "15",
-                                        "label": "(P)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(P)"
                                     },
                                     {
                                         "name": "16",
-                                        "label": "(Q)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(Q)"
                                     },
                                     {
                                         "name": "17",
-                                        "label": "(R)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(R)"
                                     },
                                     {
                                         "name": "18",
-                                        "label": "(S)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(S)"
                                     },
                                     {
                                         "name": "19",
-                                        "label": "(T)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(T)"
                                     },
                                     {
                                         "name": "20",
-                                        "label": "(U)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(U)"
                                     },
                                     {
                                         "name": "21",
-                                        "label": "(V)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(V)"
                                     },
                                     {
                                         "name": "22",
-                                        "label": "(W)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(W)"
                                     },
                                     {
                                         "name": "23",
-                                        "label": "(X)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(X)"
                                     },
                                     {
                                         "name": "24",
-                                        "label": "(Y)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(Y)"
                                     },
                                     {
                                         "name": "25",
-                                        "label": "(Z)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(Z)"
                                     },
                                     {
                                         "name": "26",
-                                        "label": "(AA)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AA)"
                                     },
                                     {
                                         "name": "27",
-                                        "label": "(AB)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AB)"
                                     },
                                     {
                                         "name": "28",
-                                        "label": "(AC)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AC)"
                                     },
                                     {
                                         "name": "29",
-                                        "label": "(AD)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AD)"
                                     },
                                     {
                                         "name": "30",
-                                        "label": "(AE)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AE)"
                                     },
                                     {
                                         "name": "31",
-                                        "label": "(AF)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AF)"
                                     },
                                     {
                                         "name": "32",
-                                        "label": "(AG)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AG)"
                                     },
                                     {
                                         "name": "33",
-                                        "label": "(AH)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AH)"
                                     },
                                     {
                                         "name": "34",
-                                        "label": "(AI)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AI)"
                                     },
                                     {
                                         "name": "35",
-                                        "label": "(AJ)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AJ)"
                                     },
                                     {
                                         "name": "36",
-                                        "label": "(AK)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AK)"
                                     },
                                     {
                                         "name": "37",
-                                        "label": "(AL)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AL)"
                                     },
                                     {
                                         "name": "38",
-                                        "label": "(AM)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AM)"
                                     },
                                     {
                                         "name": "39",
-                                        "label": "(AN)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AN)"
                                     },
                                     {
                                         "name": "40",
-                                        "label": "(AO)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AO)"
                                     },
                                     {
                                         "name": "41",
-                                        "label": "(AP)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AP)"
                                     },
                                     {
                                         "name": "42",
-                                        "label": "(AQ)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AQ)"
                                     },
                                     {
                                         "name": "43",
-                                        "label": "(AR)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AR)"
                                     },
                                     {
                                         "name": "44",
-                                        "label": "(AS)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AS)"
                                     },
                                     {
                                         "name": "45",
-                                        "label": "(AT)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AT)"
                                     },
                                     {
                                         "name": "46",
-                                        "label": "(AU)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AU)"
                                     },
                                     {
                                         "name": "47",
-                                        "label": "(AV)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AV)"
                                     },
                                     {
                                         "name": "48",
-                                        "label": "(AW)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AW)"
                                     },
                                     {
                                         "name": "49",
-                                        "label": "(AX)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AX)"
                                     },
                                     {
                                         "name": "50",
-                                        "label": "(AY)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AY)"
                                     },
                                     {
                                         "name": "51",
-                                        "label": "(AZ)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(AZ)"
                                     },
                                     {
                                         "name": "52",
-                                        "label": "(BA)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BA)"
                                     },
                                     {
                                         "name": "53",
-                                        "label": "(BB)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BB)"
                                     },
                                     {
                                         "name": "54",
-                                        "label": "(BC)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BC)"
                                     },
                                     {
                                         "name": "55",
-                                        "label": "(BD)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BD)"
                                     },
                                     {
                                         "name": "56",
-                                        "label": "(BE)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BE)"
                                     },
                                     {
                                         "name": "57",
-                                        "label": "(BF)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BF)"
                                     },
                                     {
                                         "name": "58",
-                                        "label": "(BG)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BG)"
                                     },
                                     {
                                         "name": "59",
-                                        "label": "(BH)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BH)"
                                     },
                                     {
                                         "name": "60",
-                                        "label": "(BI)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BI)"
                                     },
                                     {
                                         "name": "61",
-                                        "label": "(BJ)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BJ)"
                                     },
                                     {
                                         "name": "62",
-                                        "label": "(BK)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BK)"
                                     },
                                     {
                                         "name": "63",
-                                        "label": "(BL)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BL)"
                                     },
                                     {
                                         "name": "64",
-                                        "label": "(BM)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BM)"
                                     },
                                     {
                                         "name": "65",
-                                        "label": "(BN)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BN)"
                                     },
                                     {
                                         "name": "66",
-                                        "label": "(BO)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BO)"
                                     },
                                     {
                                         "name": "67",
-                                        "label": "(BP)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BP)"
                                     },
                                     {
                                         "name": "68",
-                                        "label": "(BQ)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BQ)"
                                     },
                                     {
                                         "name": "69",
-                                        "label": "(BR)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BR)"
                                     },
                                     {
                                         "name": "70",
-                                        "label": "(BS)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BS)"
                                     },
                                     {
                                         "name": "71",
-                                        "label": "(BT)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BT)"
                                     },
                                     {
                                         "name": "72",
-                                        "label": "(BU)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BU)"
                                     },
                                     {
                                         "name": "73",
-                                        "label": "(BV)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BV)"
                                     },
                                     {
                                         "name": "74",
-                                        "label": "(BW)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BW)"
                                     },
                                     {
                                         "name": "75",
-                                        "label": "(BX)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BX)"
                                     },
                                     {
                                         "name": "76",
-                                        "label": "(BY)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BY)"
                                     },
                                     {
                                         "name": "77",
-                                        "label": "(BZ)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(BZ)"
                                     },
                                     {
                                         "name": "78",
-                                        "label": "(CA)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CA)"
                                     },
                                     {
                                         "name": "79",
-                                        "label": "(CB)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CB)"
                                     },
                                     {
                                         "name": "80",
-                                        "label": "(CC)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CC)"
                                     },
                                     {
                                         "name": "81",
-                                        "label": "(CD)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CD)"
                                     },
                                     {
                                         "name": "82",
-                                        "label": "(CE)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CE)"
                                     },
                                     {
                                         "name": "83",
-                                        "label": "(CF)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CF)"
                                     },
                                     {
                                         "name": "84",
-                                        "label": "(CG)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CG)"
                                     },
                                     {
                                         "name": "85",
-                                        "label": "(CH)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CH)"
                                     },
                                     {
                                         "name": "86",
-                                        "label": "(CI)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CI)"
                                     },
                                     {
                                         "name": "87",
-                                        "label": "(CJ)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CJ)"
                                     },
                                     {
                                         "name": "88",
-                                        "label": "(CK)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CK)"
                                     },
                                     {
                                         "name": "89",
-                                        "label": "(CL)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CL)"
                                     },
                                     {
                                         "name": "90",
-                                        "label": "(CM)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CM)"
                                     },
                                     {
                                         "name": "91",
-                                        "label": "(CN)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CN)"
                                     },
                                     {
                                         "name": "92",
-                                        "label": "(CO)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CO)"
                                     },
                                     {
                                         "name": "93",
-                                        "label": "(CP)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CP)"
                                     },
                                     {
                                         "name": "94",
-                                        "label": "(CQ)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CQ)"
                                     },
                                     {
                                         "name": "95",
-                                        "label": "(CR)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CR)"
                                     },
                                     {
                                         "name": "96",
-                                        "label": "(CS)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CS)"
                                     },
                                     {
                                         "name": "97",
-                                        "label": "(CT)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CT)"
                                     },
                                     {
                                         "name": "98",
-                                        "label": "(CU)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CU)"
                                     },
                                     {
                                         "name": "99",
-                                        "label": "(CV)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CV)"
                                     },
                                     {
                                         "name": "100",
-                                        "label": "(CW)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CW)"
                                     },
                                     {
                                         "name": "101",
-                                        "label": "(CX)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CX)"
                                     },
                                     {
                                         "name": "102",
-                                        "label": "(CY)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CY)"
                                     },
                                     {
                                         "name": "103",
-                                        "label": "(CZ)",
-                                        "type": "text"
+                                        "type": "text",
+                                        "label": "(CZ)"
                                     }
                                 ]
                             }
@@ -4775,20 +4775,20 @@
                                                     [
                                                         {
                                                             "a": "{{84.`__IMTLENGTH__`}}",
-                                                            "o": "number:notequal",
-                                                            "b": "0"
+                                                            "b": "0",
+                                                            "o": "number:notequal"
                                                         }
                                                     ]
                                                 ]
                                             },
                                             "mapper": {
-                                                "chatId": "{{40.message.chat.id}}",
                                                 "text": "Send me a text or link to add",
-                                                "messageThreadId": "",
+                                                "chatId": "{{40.message.chat.id}}",
                                                 "parseMode": "",
+                                                "replyMarkup": "",
+                                                "messageThreadId": "",
                                                 "replyToMessageId": "",
-                                                "replyMarkupAssembleType": "reply_markup_enter",
-                                                "replyMarkup": ""
+                                                "replyMarkupAssembleType": "reply_markup_enter"
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -4796,15 +4796,6 @@
                                                     "y": 1514
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "Notes Telegram Bot connection",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "telegram"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
                                                         "parseMode": {
                                                             "label": "Empty"
@@ -4814,6 +4805,15 @@
                                                         },
                                                         "replyMarkupAssembleType": {
                                                             "label": "Enter the Reply Markup"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "telegram"
+                                                            },
+                                                            "label": "Notes Telegram Bot connection"
                                                         }
                                                     }
                                                 },
@@ -4900,9 +4900,9 @@
                                                 "__IMTCONN__": 5326350
                                             },
                                             "mapper": {
+                                                "page": "8a6c09d3dcd74647a31e0732bcab4195",
                                                 "select": "page",
-                                                "content": "{{86.page}}",
-                                                "page": "8a6c09d3dcd74647a31e0732bcab4195"
+                                                "content": "{{86.page}}"
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -4910,24 +4910,24 @@
                                                     "y": 1949
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "My Notion Internal connection",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "notion3"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
+                                                        "page": {
+                                                            "mode": "edit"
+                                                        },
                                                         "select": {
                                                             "label": "Into a Parent Page"
                                                         },
                                                         "objects": {
                                                             "mode": "chose"
-                                                        },
-                                                        "page": {
-                                                            "mode": "edit"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "notion3"
+                                                            },
+                                                            "label": "My Notion Internal connection"
                                                         }
                                                     }
                                                 },
@@ -4960,8 +4960,6 @@
                                                     },
                                                     {
                                                         "name": "objects",
-                                                        "type": "array",
-                                                        "label": "Content Objects",
                                                         "spec": [
                                                             {
                                                                 "name": "type",
@@ -5029,7 +5027,9 @@
                                                                 },
                                                                 "required": true
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Content Objects"
                                                     },
                                                     {
                                                         "name": "emoji",
@@ -5042,10 +5042,10 @@
                                                         "label": "Cover URL link"
                                                     },
                                                     {
+                                                        "mode": "edit",
                                                         "name": "page",
                                                         "type": "select",
                                                         "label": "Parent Page ID",
-                                                        "mode": "edit",
                                                         "required": true
                                                     }
                                                 ],
@@ -5665,16 +5665,16 @@
                                                         "__IMTCONN__": 5334356
                                                     },
                                                     "mapper": {
-                                                        "mode": "select",
-                                                        "valueInputOption": "USER_ENTERED",
                                                         "from": "drive",
-                                                        "spreadsheetId": "/1-xHepr-Isair-zLIfVDEnBc0sx2bD0XE3zJ-299VlZ8",
-                                                        "sheetId": "Action",
-                                                        "rowNumber": "1",
-                                                        "includesHeaders": true,
+                                                        "mode": "select",
                                                         "values": {
                                                             "0": "ia"
-                                                        }
+                                                        },
+                                                        "sheetId": "Action",
+                                                        "rowNumber": "1",
+                                                        "spreadsheetId": "/1-xHepr-Isair-zLIfVDEnBc0sx2bD0XE3zJ-299VlZ8",
+                                                        "includesHeaders": true,
+                                                        "valueInputOption": "USER_ENTERED"
                                                     },
                                                     "metadata": {
                                                         "designer": {
@@ -5682,175 +5682,175 @@
                                                             "y": 2579
                                                         },
                                                         "restore": {
-                                                            "parameters": {
-                                                                "__IMTCONN__": {
-                                                                    "label": "My Google connection (mariolams95@gmail.com)",
-                                                                    "data": {
-                                                                        "scoped": "true",
-                                                                        "connection": "google"
-                                                                    }
-                                                                }
-                                                            },
                                                             "expect": {
+                                                                "from": {
+                                                                    "label": "My Drive"
+                                                                },
                                                                 "mode": {
                                                                     "label": "Search by path"
                                                                 },
-                                                                "valueInputOption": {
-                                                                    "mode": "chose",
-                                                                    "label": "User entered"
-                                                                },
-                                                                "from": {
-                                                                    "label": "My Drive"
+                                                                "sheetId": {
+                                                                    "label": "Action"
                                                                 },
                                                                 "spreadsheetId": {
                                                                     "path": [
                                                                         "TelegramNotes2NotionPage"
                                                                     ]
                                                                 },
-                                                                "sheetId": {
-                                                                    "label": "Action"
-                                                                },
                                                                 "includesHeaders": {
+                                                                    "label": "Yes",
                                                                     "nested": [
                                                                         {
                                                                             "name": "values",
-                                                                            "label": "Values",
-                                                                            "type": "collection",
                                                                             "spec": [
                                                                                 {
                                                                                     "name": "0",
-                                                                                    "label": "tutorial (A)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "tutorial (A)"
                                                                                 },
                                                                                 {
                                                                                     "name": "1",
-                                                                                    "label": "(B)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(B)"
                                                                                 },
                                                                                 {
                                                                                     "name": "2",
-                                                                                    "label": "(C)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(C)"
                                                                                 },
                                                                                 {
                                                                                     "name": "3",
-                                                                                    "label": "(D)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(D)"
                                                                                 },
                                                                                 {
                                                                                     "name": "4",
-                                                                                    "label": "(E)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(E)"
                                                                                 },
                                                                                 {
                                                                                     "name": "5",
-                                                                                    "label": "(F)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(F)"
                                                                                 },
                                                                                 {
                                                                                     "name": "6",
-                                                                                    "label": "(G)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(G)"
                                                                                 },
                                                                                 {
                                                                                     "name": "7",
-                                                                                    "label": "(H)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(H)"
                                                                                 },
                                                                                 {
                                                                                     "name": "8",
-                                                                                    "label": "(I)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(I)"
                                                                                 },
                                                                                 {
                                                                                     "name": "9",
-                                                                                    "label": "(J)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(J)"
                                                                                 },
                                                                                 {
                                                                                     "name": "10",
-                                                                                    "label": "(K)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(K)"
                                                                                 },
                                                                                 {
                                                                                     "name": "11",
-                                                                                    "label": "(L)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(L)"
                                                                                 },
                                                                                 {
                                                                                     "name": "12",
-                                                                                    "label": "(M)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(M)"
                                                                                 },
                                                                                 {
                                                                                     "name": "13",
-                                                                                    "label": "(N)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(N)"
                                                                                 },
                                                                                 {
                                                                                     "name": "14",
-                                                                                    "label": "(O)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(O)"
                                                                                 },
                                                                                 {
                                                                                     "name": "15",
-                                                                                    "label": "(P)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(P)"
                                                                                 },
                                                                                 {
                                                                                     "name": "16",
-                                                                                    "label": "(Q)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(Q)"
                                                                                 },
                                                                                 {
                                                                                     "name": "17",
-                                                                                    "label": "(R)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(R)"
                                                                                 },
                                                                                 {
                                                                                     "name": "18",
-                                                                                    "label": "(S)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(S)"
                                                                                 },
                                                                                 {
                                                                                     "name": "19",
-                                                                                    "label": "(T)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(T)"
                                                                                 },
                                                                                 {
                                                                                     "name": "20",
-                                                                                    "label": "(U)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(U)"
                                                                                 },
                                                                                 {
                                                                                     "name": "21",
-                                                                                    "label": "(V)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(V)"
                                                                                 },
                                                                                 {
                                                                                     "name": "22",
-                                                                                    "label": "(W)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(W)"
                                                                                 },
                                                                                 {
                                                                                     "name": "23",
-                                                                                    "label": "(X)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(X)"
                                                                                 },
                                                                                 {
                                                                                     "name": "24",
-                                                                                    "label": "(Y)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(Y)"
                                                                                 },
                                                                                 {
                                                                                     "name": "25",
-                                                                                    "label": "(Z)",
-                                                                                    "type": "text"
+                                                                                    "type": "text",
+                                                                                    "label": "(Z)"
                                                                                 }
-                                                                            ]
+                                                                            ],
+                                                                            "type": "collection",
+                                                                            "label": "Values"
                                                                         }
-                                                                    ],
-                                                                    "label": "Yes"
+                                                                    ]
+                                                                },
+                                                                "valueInputOption": {
+                                                                    "mode": "chose",
+                                                                    "label": "User entered"
+                                                                }
+                                                            },
+                                                            "parameters": {
+                                                                "__IMTCONN__": {
+                                                                    "data": {
+                                                                        "scoped": "true",
+                                                                        "connection": "google"
+                                                                    },
+                                                                    "label": "My Google connection (mariolams95@gmail.com)"
                                                                 }
                                                             }
                                                         },
@@ -5932,8 +5932,6 @@
                                                             },
                                                             {
                                                                 "name": "values",
-                                                                "type": "collection",
-                                                                "label": "Values",
                                                                 "spec": [
                                                                     {
                                                                         "name": "0",
@@ -6065,7 +6063,9 @@
                                                                         "type": "text",
                                                                         "label": "(Z)"
                                                                     }
-                                                                ]
+                                                                ],
+                                                                "type": "collection",
+                                                                "label": "Values"
                                                             }
                                                         ]
                                                     }
@@ -6078,13 +6078,13 @@
                                                         "__IMTCONN__": 5325828
                                                     },
                                                     "mapper": {
-                                                        "chatId": "{{40.message.chat.id}}",
                                                         "text": "Error adding new page \"{{86.page}}\": {{85.error.type}}, {{85.error.message}}\n{{85.error.detail}}",
-                                                        "messageThreadId": "",
+                                                        "chatId": "{{40.message.chat.id}}",
                                                         "parseMode": "",
+                                                        "replyMarkup": "",
+                                                        "messageThreadId": "",
                                                         "replyToMessageId": "",
-                                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                                        "replyMarkup": ""
+                                                        "replyMarkupAssembleType": "reply_markup_enter"
                                                     },
                                                     "metadata": {
                                                         "designer": {
@@ -6092,15 +6092,6 @@
                                                             "y": 2579
                                                         },
                                                         "restore": {
-                                                            "parameters": {
-                                                                "__IMTCONN__": {
-                                                                    "label": "Notes Telegram Bot connection",
-                                                                    "data": {
-                                                                        "scoped": "true",
-                                                                        "connection": "telegram"
-                                                                    }
-                                                                }
-                                                            },
                                                             "expect": {
                                                                 "parseMode": {
                                                                     "label": "Empty"
@@ -6110,6 +6101,15 @@
                                                                 },
                                                                 "replyMarkupAssembleType": {
                                                                     "label": "Enter the Reply Markup"
+                                                                }
+                                                            },
+                                                            "parameters": {
+                                                                "__IMTCONN__": {
+                                                                    "data": {
+                                                                        "scoped": "true",
+                                                                        "connection": "telegram"
+                                                                    },
+                                                                    "label": "Notes Telegram Bot connection"
                                                                 }
                                                             }
                                                         },
@@ -6253,18 +6253,18 @@
                                                 "__IMTCONN__": 5334356
                                             },
                                             "mapper": {
-                                                "mode": "select",
-                                                "insertUnformatted": false,
-                                                "valueInputOption": "USER_ENTERED",
-                                                "insertDataOption": "INSERT_ROWS",
                                                 "from": "drive",
-                                                "spreadsheetId": "/1-xHepr-Isair-zLIfVDEnBc0sx2bD0XE3zJ-299VlZ8",
-                                                "sheetId": "Map name-id",
-                                                "includesHeaders": true,
+                                                "mode": "select",
                                                 "values": {
                                                     "0": "{{86.page}}",
                                                     "1": "{{85.id}}"
-                                                }
+                                                },
+                                                "sheetId": "Map name-id",
+                                                "spreadsheetId": "/1-xHepr-Isair-zLIfVDEnBc0sx2bD0XE3zJ-299VlZ8",
+                                                "includesHeaders": true,
+                                                "insertDataOption": "INSERT_ROWS",
+                                                "valueInputOption": "USER_ENTERED",
+                                                "insertUnformatted": false
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -6272,182 +6272,182 @@
                                                     "y": 1949
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "My Google connection (mariolams95@gmail.com)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "google"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
+                                                        "from": {
+                                                            "label": "My Drive"
+                                                        },
                                                         "mode": {
                                                             "label": "Search by path"
                                                         },
-                                                        "insertUnformatted": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "valueInputOption": {
-                                                            "mode": "chose",
-                                                            "label": "User entered"
-                                                        },
-                                                        "insertDataOption": {
-                                                            "mode": "chose",
-                                                            "label": "Insert rows"
-                                                        },
-                                                        "from": {
-                                                            "label": "My Drive"
+                                                        "sheetId": {
+                                                            "label": "Map name-id"
                                                         },
                                                         "spreadsheetId": {
                                                             "path": [
                                                                 "TelegramNotes2NotionPage"
                                                             ]
                                                         },
-                                                        "sheetId": {
-                                                            "label": "Map name-id"
-                                                        },
                                                         "includesHeaders": {
+                                                            "label": "Yes",
                                                             "nested": [
                                                                 {
                                                                     "name": "values",
-                                                                    "label": "Values",
-                                                                    "type": "collection",
                                                                     "spec": [
                                                                         {
                                                                             "name": "0",
-                                                                            "label": "Name (A)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "Name (A)"
                                                                         },
                                                                         {
                                                                             "name": "1",
-                                                                            "label": "Id (B)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "Id (B)"
                                                                         },
                                                                         {
                                                                             "name": "2",
-                                                                            "label": "(C)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(C)"
                                                                         },
                                                                         {
                                                                             "name": "3",
-                                                                            "label": "(D)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(D)"
                                                                         },
                                                                         {
                                                                             "name": "4",
-                                                                            "label": "(E)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(E)"
                                                                         },
                                                                         {
                                                                             "name": "5",
-                                                                            "label": "(F)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(F)"
                                                                         },
                                                                         {
                                                                             "name": "6",
-                                                                            "label": "(G)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(G)"
                                                                         },
                                                                         {
                                                                             "name": "7",
-                                                                            "label": "(H)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(H)"
                                                                         },
                                                                         {
                                                                             "name": "8",
-                                                                            "label": "(I)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(I)"
                                                                         },
                                                                         {
                                                                             "name": "9",
-                                                                            "label": "(J)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(J)"
                                                                         },
                                                                         {
                                                                             "name": "10",
-                                                                            "label": "(K)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(K)"
                                                                         },
                                                                         {
                                                                             "name": "11",
-                                                                            "label": "(L)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(L)"
                                                                         },
                                                                         {
                                                                             "name": "12",
-                                                                            "label": "(M)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(M)"
                                                                         },
                                                                         {
                                                                             "name": "13",
-                                                                            "label": "(N)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(N)"
                                                                         },
                                                                         {
                                                                             "name": "14",
-                                                                            "label": "(O)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(O)"
                                                                         },
                                                                         {
                                                                             "name": "15",
-                                                                            "label": "(P)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(P)"
                                                                         },
                                                                         {
                                                                             "name": "16",
-                                                                            "label": "(Q)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(Q)"
                                                                         },
                                                                         {
                                                                             "name": "17",
-                                                                            "label": "(R)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(R)"
                                                                         },
                                                                         {
                                                                             "name": "18",
-                                                                            "label": "(S)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(S)"
                                                                         },
                                                                         {
                                                                             "name": "19",
-                                                                            "label": "(T)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(T)"
                                                                         },
                                                                         {
                                                                             "name": "20",
-                                                                            "label": "(U)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(U)"
                                                                         },
                                                                         {
                                                                             "name": "21",
-                                                                            "label": "(V)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(V)"
                                                                         },
                                                                         {
                                                                             "name": "22",
-                                                                            "label": "(W)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(W)"
                                                                         },
                                                                         {
                                                                             "name": "23",
-                                                                            "label": "(X)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(X)"
                                                                         },
                                                                         {
                                                                             "name": "24",
-                                                                            "label": "(Y)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(Y)"
                                                                         },
                                                                         {
                                                                             "name": "25",
-                                                                            "label": "(Z)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(Z)"
                                                                         }
-                                                                    ]
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Values"
                                                                 }
-                                                            ],
-                                                            "label": "Yes"
+                                                            ]
+                                                        },
+                                                        "insertDataOption": {
+                                                            "mode": "chose",
+                                                            "label": "Insert rows"
+                                                        },
+                                                        "valueInputOption": {
+                                                            "mode": "chose",
+                                                            "label": "User entered"
+                                                        },
+                                                        "insertUnformatted": {
+                                                            "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google"
+                                                            },
+                                                            "label": "My Google connection (mariolams95@gmail.com)"
                                                         }
                                                     }
                                                 },
@@ -6540,8 +6540,6 @@
                                                     },
                                                     {
                                                         "name": "values",
-                                                        "type": "collection",
-                                                        "label": "Values",
                                                         "spec": [
                                                             {
                                                                 "name": "0",
@@ -6673,7 +6671,9 @@
                                                                 "type": "text",
                                                                 "label": "(Z)"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Values"
                                                     }
                                                 ]
                                             },
@@ -6686,13 +6686,13 @@
                                                         "__IMTCONN__": 5068837
                                                     },
                                                     "mapper": {
-                                                        "chatId": "{{40.message.chat.id}}",
                                                         "text": "Error setting the page where to add content: {{88.error.type}} , {{88.error.message}}, {{88.error.detail}}",
-                                                        "messageThreadId": "",
+                                                        "chatId": "{{40.message.chat.id}}",
                                                         "parseMode": "",
+                                                        "replyMarkup": "",
+                                                        "messageThreadId": "",
                                                         "replyToMessageId": "",
-                                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                                        "replyMarkup": ""
+                                                        "replyMarkupAssembleType": "reply_markup_enter"
                                                     },
                                                     "metadata": {
                                                         "designer": {
@@ -6700,15 +6700,6 @@
                                                             "y": 2324
                                                         },
                                                         "restore": {
-                                                            "parameters": {
-                                                                "__IMTCONN__": {
-                                                                    "label": "Info DANA Bot connection",
-                                                                    "data": {
-                                                                        "scoped": "true",
-                                                                        "connection": "telegram"
-                                                                    }
-                                                                }
-                                                            },
                                                             "expect": {
                                                                 "parseMode": {
                                                                     "label": "Empty"
@@ -6718,6 +6709,15 @@
                                                                 },
                                                                 "replyMarkupAssembleType": {
                                                                     "label": "Enter the Reply Markup"
+                                                                }
+                                                            },
+                                                            "parameters": {
+                                                                "__IMTCONN__": {
+                                                                    "data": {
+                                                                        "scoped": "true",
+                                                                        "connection": "telegram"
+                                                                    },
+                                                                    "label": "Info DANA Bot connection"
                                                                 }
                                                             }
                                                         },
@@ -6802,17 +6802,17 @@
                                                 "__IMTCONN__": 5334356
                                             },
                                             "mapper": {
-                                                "mode": "select",
-                                                "insertUnformatted": false,
-                                                "valueInputOption": "USER_ENTERED",
-                                                "insertDataOption": "INSERT_ROWS",
                                                 "from": "drive",
-                                                "spreadsheetId": "/1-xHepr-Isair-zLIfVDEnBc0sx2bD0XE3zJ-299VlZ8",
-                                                "sheetId": "Action",
-                                                "includesHeaders": true,
+                                                "mode": "select",
                                                 "values": {
                                                     "0": "{{86.page}}"
-                                                }
+                                                },
+                                                "sheetId": "Action",
+                                                "spreadsheetId": "/1-xHepr-Isair-zLIfVDEnBc0sx2bD0XE3zJ-299VlZ8",
+                                                "includesHeaders": true,
+                                                "insertDataOption": "INSERT_ROWS",
+                                                "valueInputOption": "USER_ENTERED",
+                                                "insertUnformatted": false
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -6820,182 +6820,182 @@
                                                     "y": 1799
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "My Google connection (mariolams95@gmail.com)",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "google"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
+                                                        "from": {
+                                                            "label": "My Drive"
+                                                        },
                                                         "mode": {
                                                             "label": "Search by path"
                                                         },
-                                                        "insertUnformatted": {
-                                                            "mode": "chose"
-                                                        },
-                                                        "valueInputOption": {
-                                                            "mode": "chose",
-                                                            "label": "User entered"
-                                                        },
-                                                        "insertDataOption": {
-                                                            "mode": "chose",
-                                                            "label": "Insert rows"
-                                                        },
-                                                        "from": {
-                                                            "label": "My Drive"
+                                                        "sheetId": {
+                                                            "label": "Action"
                                                         },
                                                         "spreadsheetId": {
                                                             "path": [
                                                                 "TelegramNotes2NotionPage"
                                                             ]
                                                         },
-                                                        "sheetId": {
-                                                            "label": "Action"
-                                                        },
                                                         "includesHeaders": {
+                                                            "label": "Yes",
                                                             "nested": [
                                                                 {
                                                                     "name": "values",
-                                                                    "label": "Values",
-                                                                    "type": "collection",
                                                                     "spec": [
                                                                         {
                                                                             "name": "0",
-                                                                            "label": "ia (A)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "ia (A)"
                                                                         },
                                                                         {
                                                                             "name": "1",
-                                                                            "label": "(B)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(B)"
                                                                         },
                                                                         {
                                                                             "name": "2",
-                                                                            "label": "(C)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(C)"
                                                                         },
                                                                         {
                                                                             "name": "3",
-                                                                            "label": "(D)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(D)"
                                                                         },
                                                                         {
                                                                             "name": "4",
-                                                                            "label": "(E)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(E)"
                                                                         },
                                                                         {
                                                                             "name": "5",
-                                                                            "label": "(F)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(F)"
                                                                         },
                                                                         {
                                                                             "name": "6",
-                                                                            "label": "(G)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(G)"
                                                                         },
                                                                         {
                                                                             "name": "7",
-                                                                            "label": "(H)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(H)"
                                                                         },
                                                                         {
                                                                             "name": "8",
-                                                                            "label": "(I)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(I)"
                                                                         },
                                                                         {
                                                                             "name": "9",
-                                                                            "label": "(J)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(J)"
                                                                         },
                                                                         {
                                                                             "name": "10",
-                                                                            "label": "(K)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(K)"
                                                                         },
                                                                         {
                                                                             "name": "11",
-                                                                            "label": "(L)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(L)"
                                                                         },
                                                                         {
                                                                             "name": "12",
-                                                                            "label": "(M)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(M)"
                                                                         },
                                                                         {
                                                                             "name": "13",
-                                                                            "label": "(N)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(N)"
                                                                         },
                                                                         {
                                                                             "name": "14",
-                                                                            "label": "(O)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(O)"
                                                                         },
                                                                         {
                                                                             "name": "15",
-                                                                            "label": "(P)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(P)"
                                                                         },
                                                                         {
                                                                             "name": "16",
-                                                                            "label": "(Q)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(Q)"
                                                                         },
                                                                         {
                                                                             "name": "17",
-                                                                            "label": "(R)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(R)"
                                                                         },
                                                                         {
                                                                             "name": "18",
-                                                                            "label": "(S)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(S)"
                                                                         },
                                                                         {
                                                                             "name": "19",
-                                                                            "label": "(T)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(T)"
                                                                         },
                                                                         {
                                                                             "name": "20",
-                                                                            "label": "(U)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(U)"
                                                                         },
                                                                         {
                                                                             "name": "21",
-                                                                            "label": "(V)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(V)"
                                                                         },
                                                                         {
                                                                             "name": "22",
-                                                                            "label": "(W)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(W)"
                                                                         },
                                                                         {
                                                                             "name": "23",
-                                                                            "label": "(X)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(X)"
                                                                         },
                                                                         {
                                                                             "name": "24",
-                                                                            "label": "(Y)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(Y)"
                                                                         },
                                                                         {
                                                                             "name": "25",
-                                                                            "label": "(Z)",
-                                                                            "type": "text"
+                                                                            "type": "text",
+                                                                            "label": "(Z)"
                                                                         }
-                                                                    ]
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Values"
                                                                 }
-                                                            ],
-                                                            "label": "Yes"
+                                                            ]
+                                                        },
+                                                        "insertDataOption": {
+                                                            "mode": "chose",
+                                                            "label": "Insert rows"
+                                                        },
+                                                        "valueInputOption": {
+                                                            "mode": "chose",
+                                                            "label": "User entered"
+                                                        },
+                                                        "insertUnformatted": {
+                                                            "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google"
+                                                            },
+                                                            "label": "My Google connection (mariolams95@gmail.com)"
                                                         }
                                                     }
                                                 },
@@ -7088,8 +7088,6 @@
                                                     },
                                                     {
                                                         "name": "values",
-                                                        "type": "collection",
-                                                        "label": "Values",
                                                         "spec": [
                                                             {
                                                                 "name": "0",
@@ -7221,7 +7219,9 @@
                                                                 "type": "text",
                                                                 "label": "(Z)"
                                                             }
-                                                        ]
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Values"
                                                     }
                                                 ]
                                             },
@@ -7234,13 +7234,13 @@
                                                         "__IMTCONN__": 5068837
                                                     },
                                                     "mapper": {
-                                                        "chatId": "{{40.message.chat.id}}",
                                                         "text": "Error setting the page where to add content: {{89.error.type}}, {{89.error.message}}\n{{89.error.detail}}",
-                                                        "messageThreadId": "",
+                                                        "chatId": "{{40.message.chat.id}}",
                                                         "parseMode": "",
+                                                        "replyMarkup": "",
+                                                        "messageThreadId": "",
                                                         "replyToMessageId": "",
-                                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                                        "replyMarkup": ""
+                                                        "replyMarkupAssembleType": "reply_markup_enter"
                                                     },
                                                     "metadata": {
                                                         "designer": {
@@ -7248,15 +7248,6 @@
                                                             "y": 2124
                                                         },
                                                         "restore": {
-                                                            "parameters": {
-                                                                "__IMTCONN__": {
-                                                                    "label": "Info DANA Bot connection",
-                                                                    "data": {
-                                                                        "scoped": "true",
-                                                                        "connection": "telegram"
-                                                                    }
-                                                                }
-                                                            },
                                                             "expect": {
                                                                 "parseMode": {
                                                                     "label": "Empty"
@@ -7266,6 +7257,15 @@
                                                                 },
                                                                 "replyMarkupAssembleType": {
                                                                     "label": "Enter the Reply Markup"
+                                                                }
+                                                            },
+                                                            "parameters": {
+                                                                "__IMTCONN__": {
+                                                                    "data": {
+                                                                        "scoped": "true",
+                                                                        "connection": "telegram"
+                                                                    },
+                                                                    "label": "Info DANA Bot connection"
                                                                 }
                                                             }
                                                         },
@@ -7350,13 +7350,13 @@
                                                 "__IMTCONN__": 5325828
                                             },
                                             "mapper": {
-                                                "chatId": "{{40.message.chat.id}}",
                                                 "text": "New page \"{{86.page}}\" added to Notion. Send me the content you want to add",
-                                                "messageThreadId": "",
+                                                "chatId": "{{40.message.chat.id}}",
                                                 "parseMode": "",
+                                                "replyMarkup": "",
+                                                "messageThreadId": "",
                                                 "replyToMessageId": "",
-                                                "replyMarkupAssembleType": "reply_markup_enter",
-                                                "replyMarkup": ""
+                                                "replyMarkupAssembleType": "reply_markup_enter"
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -7364,15 +7364,6 @@
                                                     "y": 1649
                                                 },
                                                 "restore": {
-                                                    "parameters": {
-                                                        "__IMTCONN__": {
-                                                            "label": "Notes Telegram Bot connection",
-                                                            "data": {
-                                                                "scoped": "true",
-                                                                "connection": "telegram"
-                                                            }
-                                                        }
-                                                    },
                                                     "expect": {
                                                         "parseMode": {
                                                             "label": "Empty"
@@ -7382,6 +7373,15 @@
                                                         },
                                                         "replyMarkupAssembleType": {
                                                             "label": "Enter the Reply Markup"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "telegram"
+                                                            },
+                                                            "label": "Notes Telegram Bot connection"
                                                         }
                                                     }
                                                 },
@@ -8504,14 +8504,14 @@
                                                         "__IMTCONN__": 5325828
                                                     },
                                                     "mapper": {
-                                                        "chatId": "{{40.message.chat.id}}",
                                                         "text": "Error adding content to Notion: \n{{59.error.type}} {{59.error.message}} {{59.error.detail}}",
-                                                        "messageThreadId": "",
+                                                        "chatId": "{{40.message.chat.id}}",
                                                         "parseMode": "",
-                                                        "disableNotification": true,
+                                                        "replyMarkup": "",
+                                                        "messageThreadId": "",
                                                         "replyToMessageId": "",
-                                                        "replyMarkupAssembleType": "reply_markup_enter",
-                                                        "replyMarkup": ""
+                                                        "disableNotification": true,
+                                                        "replyMarkupAssembleType": "reply_markup_enter"
                                                     },
                                                     "metadata": {
                                                         "designer": {
@@ -8519,15 +8519,6 @@
                                                             "y": 3000
                                                         },
                                                         "restore": {
-                                                            "parameters": {
-                                                                "__IMTCONN__": {
-                                                                    "label": "Notes Telegram Bot connection",
-                                                                    "data": {
-                                                                        "scoped": "true",
-                                                                        "connection": "telegram"
-                                                                    }
-                                                                }
-                                                            },
                                                             "expect": {
                                                                 "parseMode": {
                                                                     "label": "Empty"
@@ -8537,6 +8528,15 @@
                                                                 },
                                                                 "replyMarkupAssembleType": {
                                                                     "label": "Enter the Reply Markup"
+                                                                }
+                                                            },
+                                                            "parameters": {
+                                                                "__IMTCONN__": {
+                                                                    "data": {
+                                                                        "scoped": "true",
+                                                                        "connection": "telegram"
+                                                                    },
+                                                                    "label": "Notes Telegram Bot connection"
                                                                 }
                                                             }
                                                         },
@@ -8636,13 +8636,13 @@
                                 "__IMTCONN__": 5325828
                             },
                             "mapper": {
-                                "chatId": "{{40.message.chat.id}}",
                                 "text": "Text successfully added",
-                                "messageThreadId": "",
+                                "chatId": "{{40.message.chat.id}}",
                                 "parseMode": "",
+                                "replyMarkup": "",
+                                "messageThreadId": "",
                                 "replyToMessageId": "",
-                                "replyMarkupAssembleType": "reply_markup_enter",
-                                "replyMarkup": ""
+                                "replyMarkupAssembleType": "reply_markup_enter"
                             },
                             "metadata": {
                                 "designer": {
@@ -8650,15 +8650,6 @@
                                     "y": 2550
                                 },
                                 "restore": {
-                                    "parameters": {
-                                        "__IMTCONN__": {
-                                            "label": "Notes Telegram Bot connection",
-                                            "data": {
-                                                "scoped": "true",
-                                                "connection": "telegram"
-                                            }
-                                        }
-                                    },
                                     "expect": {
                                         "parseMode": {
                                             "label": "Empty"
@@ -8668,6 +8659,15 @@
                                         },
                                         "replyMarkupAssembleType": {
                                             "label": "Enter the Reply Markup"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "telegram"
+                                            },
+                                            "label": "Notes Telegram Bot connection"
                                         }
                                     }
                                 },
